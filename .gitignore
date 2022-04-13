@@ -1,0 +1,10 @@
+### Maven ###
+target/
+### intellij ####
+.idea
+/out/girt
+### Apple ###
+*.DS_Store
+.AppleDouble
+.LSOverride
+

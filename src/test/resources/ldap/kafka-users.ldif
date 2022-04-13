@@ -1,0 +1,63 @@
+version: 1
+dn: dc=bah,dc=com
+dc: bah
+objectClass: top
+objectClass: dcObject
+
+#Organizational Unit
+dn: ou=Service Accounts,dc=bah,dc=com
+objectClass: top
+objectClass: organizationalUnit
+ou: ServiceAccounts
+
+#Organizational Unit
+dn: ou=AdminGroups,dc=bah,dc=com
+objectClass: top
+objectClass: organizationalUnit
+ou: AdminGroups
+
+
+dn: cn=kafka_user,ou=Service Accounts,dc=bah,dc=com
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: kafka_user
+sn: service
+description: Kafka User
+userPassword: secret?
+MEMBEROF: cn=Kafka-write_grp,OU=AdminGroups,dc=bah,dc=com
+MEMBEROF: cn=Kafka-read_grp,OU=AdminGroups,dc=bah,dc=com
+MEMBEROF: cn=Service Accounts,OU=AdminGroups,dc=bah,dc=com
+
+dn: cn=kafka_admin,ou=Service Accounts,dc=bah,dc=com
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: kafka_admin
+sn: service
+description: Kafka Admin User
+userPassword: admin#secret
+MEMBEROF: cn=Kafka-admin_grp,OU=AdminGroups,dc=bah,dc=com
+MEMBEROF: cn=Service Accounts,OU=AdminGroups,dc=bah,dc=com
+
+dn: cn=kafka_super_user,ou=Service Accounts,dc=bah,dc=com
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: kafka_suer_user
+sn: service
+description: Kafka Super User
+userPassword: super!secret
+MEMBEROF: cn=Kafka-superuser_grp,OU=AdminGroups,dc=bah,dc=com
+MEMBEROF: cn=Service Accounts,OU=AdminGroups,dc=bah,dc=com
+
+dn: cn=kafka_broker,ou=Service Accounts,dc=bah,dc=com
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: kafka_admin
+sn: service
+description: Kafka Broker User
+userPassword: broker#secret
+MEMBEROF: cn=Kafka-admin_grp,OU=AdminGroups,dc=bah,dc=com
+MEMBEROF: cn=Service Accounts,OU=AdminGroups,dc=bah,dc=com
